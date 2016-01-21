@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+
   <title>Meet Al</title>
+  <%= favicon_link_tag 'favicon.ico' %>
    	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,8 +19,8 @@
 </head>
 <body>
 <%= render "layouts/nav" %>
+<% unless current_page?(action: 'about') %>
 <%= render "layouts/header" %>
+<% end %>
 <%= yield %>
-
-</body>
-</html>
+<%= render "layouts/footer" %>

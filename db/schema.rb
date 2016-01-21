@@ -11,6 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20160120131755) do
+
+  create_table "languages", force: :cascade do |t|
+    t.string   "name",         limit: 25
+    t.integer  "position",     limit: 4
+    t.boolean  "visible",                    default: false
+    t.string   "content_type", limit: 256
+    t.text     "content",      limit: 65535
+    t.string   "icon",         limit: 50
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+  end
 
 end

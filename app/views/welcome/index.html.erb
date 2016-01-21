@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2>Here you can view my portfolio, all the work I've done and know all about me.  </h2>
-                     <p class="lead">About me -  <%= link_to("Click Here",{ :action => 'about'}) %></p>
+                     <p class="lead">About me -  <%= link_to("Click Here",about_path) %></p>
                 </div>
             </div>
             <!-- /.row -->
@@ -25,58 +25,21 @@
                     <h2>My Projects with...</h2>
                     <hr class="small">
                     <div class="row">
+                        <% @languages.each do |language| %>
                         <div class="col-md-3 col-sm-6">
                             <div class="service-item">
                                 <span class="fa-stack fa-4x">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-code fa-stack-1x text-primary"></i>
+                                <i class="<%= language.icon %> fa-stack-1x text-primary"></i>
                             </span>
                                 <h4>
-                                    <strong>Ruby on Rails</strong>
+                                    <strong><%= language.name %></strong>
                                 </h4>
-                                <p>Developed this web application, and learning it extensively.</p>
+                                <p><%= language.content_type %></p>
                                 <a href="#" class="btn btn-light">Learn More</a>
                             </div>
                         </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-item">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-code fa-stack-1x text-primary"></i>
-                            </span>
-                                <h4>
-                                    <strong>PHP</strong>
-                                </h4>
-                                <p>Developed 2 web applications that are Utilized by Abundant Power.</p>
-                                <a href="#" class="btn btn-light">Learn More</a>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-item">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-css3 fa-stack-1x text-primary"></i>
-                            </span>
-                                <h4>
-                                    <strong>CSS3</strong>
-                                </h4>
-                                <p>Developed 3 web applications including this one.</p>
-                                <a href="#" class="btn btn-light">Learn More</a>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-item">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-html5 fa-stack-1x text-primary"></i>
-                            </span>
-                                <h4>
-                                    <strong>HTML5</strong>
-                                </h4>
-                                <p>Developed 3 web applications and know it extensively</p>
-                                <a href="#" class="btn btn-light">Learn More</a>
-                            </div>
-                        </div>
+                        <% end %>
                     </div>
                     <!-- /.row (nested) -->
                 </div>
@@ -163,81 +126,3 @@
             </div>
         </div>
     </aside>
-
-   
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <h4><strong>Contact Information</strong>
-                    </h4>
-                    <p>University Area<br>Charlotte, NC 28213</p>
-                    <ul class="list-unstyled">
-                        <li><i class="fa fa-phone fa-fw"></i><a href="tel:1-704-819-4376">+1(704) 819-4376</a></li>
-                        <li><i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:abdelfa@icloud.com">abdelfa@icloud.com</a>
-                        </li>
-                    </ul>
-                    <br>
-                    <ul class="list-inline">
-                        <li>
-                            <a href="https://www.linkedin.com/in/aabdelfa"><i class="fa fa-linkedin fa-fw fa-3x"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://www.facebook.com/alaa.e.hassan.7"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/aabdelfa"><i class="fa fa-github fa-fw fa-3x"></i></a>
-                        </li>
-                    </ul>
-                    <hr class="small">
-                    <p class="text-muted">Copyright &copy; Meet-Al 2014</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
- <!-- Map -->
-    <section id="contact" class="map">
-        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
-        <br />
-
-        </iframe>
-    </section>
-
-
-    <!-- Custom Theme JavaScript -->
-    <script>
-    // Closes the sidebar menu
-    $("#menu-close").click(function(e) {
-        e.preventDefault();
-        $("#sidebar-wrapper").toggleClass("active");
-    });
-
-    // Opens the sidebar menu
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#sidebar-wrapper").toggleClass("active");
-    });
-
-    // Scrolls to the selected menu item on the page
-    $(function() {
-        $('a[href*=#]:not([href=#])').click(function() {
-            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
-
-                var target = $(this.hash);
-                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                if (target.length) {
-                    $('html,body').animate({
-                        scrollTop: target.offset().top
-                    }, 1000);
-                    return false;
-                }
-            }
-        });
-    });
-    </script>
-
-</body>
-
-</html>
