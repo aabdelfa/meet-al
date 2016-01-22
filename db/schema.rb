@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160120131755) do
+ActiveRecord::Schema.define(version: 20160121233709) do
 
   create_table "languages", force: :cascade do |t|
     t.string   "name",         limit: 25
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(version: 20160120131755) do
     t.string   "icon",         limit: 50
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
+  end
+
+  create_table "timelines", force: :cascade do |t|
+    t.string   "user",       limit: 25,    default: "Alaa"
+    t.string   "image",      limit: 50
+    t.text     "content",    limit: 65535
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
   end
 
 end

@@ -20,7 +20,7 @@
 <body>
 <%= render "layouts/nav" %>
 <% unless current_page?(action: 'about') %>
-<%= render "layouts/header" %>
+  <%= render "layouts/header" %>
 <% end %>
 <%= yield %>
 <%= render "layouts/footer" %>

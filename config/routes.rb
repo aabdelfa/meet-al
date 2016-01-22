@@ -56,5 +56,5 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
    #last resort route
-  match ':controller(/:action(/:id))', :via => :get
+  match ':controller(/:action(/:id))', via: :get
 end

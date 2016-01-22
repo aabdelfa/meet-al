@@ -1,3 +1,81 @@
-<div id="about">
-<h1>This is the about page.</h1>
+<div class="bg-grey">
+    <div class="row">
+        <div class="col-md-3 col-lg-3">
+           <section class="about">
+                <div class="panel col-md-offset-1">
+                        <%= image_tag "alaa-profile.jpg",  class: "img-rounded img-responsive" %>
+                </div> 
+            <div class="panel col-md-offset-1">
+                  <div class="text-primary">
+                    Place holder.
+                  </div>
+            </div>
+          </section>
+        </div>
+        <div class="col-md-5 col-lg-5">
+            <section class="about">
+                <div class="panel">
+                    <div class="col-md-offset-1 text-primary">
+                       <h2><b>Alaa E. Abdelfattah</b></h2>
+                       <h4>Lead Software Developer at Abundant Power Group, LLC.</h4>
+                    </div>
+                    <div class="col-md-offset-1">
+                      <h5 style="color: grey;">Charlotte, North Carolina | Energy Efficiency</h5>
+                    </div>  
+                </div>
+                 <div class="panel">
+                    <div style="padding-right: 4px;" class="col-md-offset-1">
+                     <h3 style="color: grey;">Al's timeline</h3>
+                     <div style="color: grey;" class="timeline timeline-simple mt-xlg mb-md">
+                     <div class="tm-body"> 
+                      <% previous = '' %>
+                      <% @timelines.each do |timeline, i| %>
+                      <% current = timeline.created_at.month %>
+                       
+                        <% if current != previous  %>
+                          <div class="tm-title">
+                            <h3 class="h5 text-primary text-uppercase"><%= timeline.created_at.strftime("%B %Y") %></h3>
+                          </div>
+                        <% end %>
+                          <ol class="tm-items">
+                            <li>
+                              <div class="tm-box">
+                                <p class="text-primary mb-none">
+                                <% if Time.now.year == timeline.created_at.year %>
+                                   <% if Time.now.month == timeline.created_at.month %> 
+                                      <% if Time.now.day - timeline.created_at.day > 1 %>
+                                        <%= timeline.created_at.strftime("%B %d at %l:%M %p")  %> 
+                                     <% end %>
+                                     <% else %>
+                                            Today at <%= timeline.created_at.strftime("%l:%M %p") %>
+                                      <% end %>
+                                    <% else %>
+                                      <%= timeline.created_at.strftime("%B %d at %l:%M %p")  %> 
+                                 <% end %>
+                                </p>
+                                <p>
+                                  <%= timeline.content %>
+                                </p>
+                                <span>
+                                    <i class="fa fa-user"></i> By <b class="text-primary"><%= timeline.user %></b></a>
+                                </span>
+                              </div>
+                            </li>
+                          </ol> 
+                      <% previous = timeline.created_at.month %>
+                      <% end %>
+                      </div>
+                    </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="col-md-3 col-lg-3">
+            <section class="about">
+                <div class="panel about">
+                    <p>Hello</p>
+                </div>
+            </section>
+        </div>
+    </div>
 </div>

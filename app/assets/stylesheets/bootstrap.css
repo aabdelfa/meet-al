@@ -1123,10 +1123,11 @@ img {
 .carousel-inner > .item > a > img {
   display: block;
   max-width: 100%;
+  padding: 10px;
   height: auto;
 }
 .img-rounded {
-  border-radius: 6px;
+  border-radius: 14px;
 }
 .img-thumbnail {
   display: inline-block;
@@ -1375,6 +1376,10 @@ a.text-danger:focus {
 .bg-primary {
   color: #fff;
   background-color: #337ab7;
+}
+.bg-grey {
+  color: #fff;
+  background-color: #ecedf0;
 }
 a.bg-primary:hover,
 a.bg-primary:focus {
