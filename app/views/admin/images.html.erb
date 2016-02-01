@@ -1,0 +1,16 @@
+<p class="navbar-text pull-right">
+<% if admin_signed_in? %>
+<div class="pull-left">
+  <span> Welcome, <strong><%= current_admin.username %></strong>.</span>
+  <%= link_to "Logout", destroy_admin_session_path, method: :delete, :class => 'navbar-link' %>
+</div>
+<br>
+<%= form_for(@upload, html: { multipart: true }) do |f|  %>
+  <div class="fallback">
+    <%= f.file_field :image, required: true, class: 'fileupload' %><br>
+    <%= f.submit "Upload", class: 'btn btn-primary' %>
+  </div>
+<% end %>
+<br>
+
+<% end %>

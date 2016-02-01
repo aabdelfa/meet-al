@@ -1,18 +1,45 @@
 <div class="bg-grey">
     <div class="row">
-        <div class="col-md-3 col-lg-3">
-           <section class="about">
-                <div class="panel col-md-offset-1">
-                        <%= image_tag "alaa-profile.jpg",  class: "img-rounded img-responsive" %>
-                </div> 
+        <div class="col-md-4 col-lg-4">
+          <section class="about">
             <div class="panel col-md-offset-1">
-                  <div class="text-primary">
-                    Place holder.
-                  </div>
+                <%= image_tag "alaa-profile.jpg",  class: "img-rounded img-responsive" %>
+            </div> 
+            <div class="panel col-md-offset-1">
+              <div class="col-md-offset-1">
+                 <i class="fa fa-globe fa-2x text-primary"></i>
+                 <span class="fa-2x" style="color: #191919;"> &nbsp; Intro</span>
+              </div>
+            <hr>
+            <div class="col-md-offset-1">
+                <i class="fa fa-home" style="color: grey;"></i>
+                <span style="color: #191919;"> &nbsp;Lives in <%= link_to "Charlotte, North Carolina", "https://www.facebook.com/places/Things-to-do-in-Charlotte-North-Carolina/105715936129053/" %></span>            
             </div>
+            <div class="col-md-offset-1">
+                <i class="fa fa-heart" style="color: grey;"></i>
+                <span style="color: #191919;">&nbsp;Relationship Status <%= link_to "Married" %></span>            
+            </div>
+            <div class="col-md-offset-1">
+                 &nbsp;<i class="fa fa-map-marker" style="color: grey;"></i>
+                <span style="color: #191919;"> &nbsp; From <%= link_to "Cairo, Egypt", "https://www.facebook.com/places/Things-to-do-in-Cairo-Egypt/115351105145884/" %></span>            
+            </div>
+            <div class="col-md-offset-1">
+                 <i class="fa fa-book" style="color: grey;"></i>
+                <span style="color: #191919;"> &nbsp;Education <%= link_to "B.Sc in EE/CE, UNCC", "http://engr.uncc.edu/" %></span>
+            </div>
+            <br>  
+            </div>
+            <div class="panel col-md-offset-1">
+              <div class="col-md-offset-1">
+                 <i class="fa fa-image fa-2x text-primary"></i>
+                 <span class="fa-2x" style="color: #191919;"> &nbsp; Photos</span>
+              </div>
+            <hr>
+            <h3 style="color: #191919;">Coming Soon!</h3>
+            </div>      
           </section>
         </div>
-        <div class="col-md-5 col-lg-5">
+        <div class="col-md-6 col-lg-6">
             <section class="about">
                 <div class="panel">
                     <div class="col-md-offset-1 text-primary">
@@ -24,12 +51,15 @@
                     </div>  
                 </div>
                  <div class="panel">
-                    <div style="padding-right: 4px;" class="col-md-offset-1">
-                     <h3 style="color: grey;">Al's timeline</h3>
+                    <div  class="col-md-offset-1">
+                         <i class="fa fa-clock-o fa-2x text-primary"></i>
+                         <span class="fa-2x" style="color: #191919;"> &nbsp; Blog</span>
+                     <div class="scrollable" ic-trigger-on="scrollend" ic-append-from="/example-scroll" ic-target="#ScrollableTarget" data-plugin-scrollable style="height: 384px;">
+                    <div id="ScrollableTarget" class="scrollable-content text-primary">
                      <div style="color: grey;" class="timeline timeline-simple mt-xlg mb-md">
                      <div class="tm-body"> 
                       <% previous = '' %>
-                      <% @timelines.each do |timeline, i| %>
+                      <% @timelines.each do |timeline| %>
                       <% current = timeline.created_at.month %>
                        
                         <% if current != previous  %>
@@ -45,9 +75,9 @@
                                    <% if Time.now.month == timeline.created_at.month %> 
                                       <% if Time.now.day - timeline.created_at.day > 1 %>
                                         <%= timeline.created_at.strftime("%B %d at %l:%M %p")  %> 
-                                     <% end %>
-                                     <% else %>
+                                        <% else %>
                                             Today at <%= timeline.created_at.strftime("%l:%M %p") %>
+                                      <% end %>
                                       <% end %>
                                     <% else %>
                                       <%= timeline.created_at.strftime("%B %d at %l:%M %p")  %> 
@@ -67,15 +97,26 @@
                       </div>
                     </div>
                     </div>
+                  </div>
+                  </div>
+                </div>
+                <div class="panel">
+                    <div class="col-md-offset-1 text-primary">
+                      <i class="fa fa-male fa-2x"></i>
+                      <span class="fa-2x" style="color: #191919;"> &nbsp; Bio</span>
+                    </div>
+                    <hr>  
+                    <h3 style="color: #191919;">Coming Soon!</h3>
                 </div>
             </section>
         </div>
-        <div class="col-md-3 col-lg-3">
+        <div class="col-md-2 col-lg-2">
             <section class="about">
-                <div class="panel about">
-                    <p>Hello</p>
+                <div class="text-primary">
+                    <h2>Al's Stats</h2>
                 </div>
+                <h3 style="color: #191919;">Coming Soon!</h3>
             </section>
         </div>
-    </div>
+    </div>       
 </div>

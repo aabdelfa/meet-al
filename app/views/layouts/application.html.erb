@@ -10,7 +10,7 @@
     <meta name="description" content="Meet Al is a site that represents Alaa in a fun and new way.">
     <meta name="author" content="Alaa E. Abdelfattah">
      <!-- Custom Fonts -->
-  
+    <%= javascript_include_tag :modernizr %>
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -19,8 +19,14 @@
 </head>
 <body>
 <%= render "layouts/nav" %>
-<% unless current_page?(action: 'about') %>
+<% if current_page?('/') or current_page?(action: 'index', controller: 'welcome') %>
   <%= render "layouts/header" %>
+<% end %>
+<% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
 <% end %>
 <%= yield %>
 <%= render "layouts/footer" %>

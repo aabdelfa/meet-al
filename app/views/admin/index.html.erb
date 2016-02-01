@@ -1,0 +1,14 @@
+<p class="navbar-text pull-right">
+<% if admin_signed_in? %>
+<div class="pull-left">
+  <span> Welcome, <strong><%= current_admin.username %></strong>.</span>
+  <%= link_to "Logout", destroy_admin_session_path, method: :delete, class: 'navbar-link' %>
+</div>
+<br>
+<div class="about">
+  <ul>
+  <li><%= link_to "Upload Images", imageUpload_path %></li>
+  <li><%= link_to "Coding Languages", languages_path %></li>
+  </ul>
+</div>
+<% end %>

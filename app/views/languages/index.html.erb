@@ -1,0 +1,23 @@
+<% if flash[:success] != nil %>
+<p class="alert alert-success"><%= flash[:success] %></p>
+<% end %>
+<p class="navbar-text pull-right">
+<% if admin_signed_in? %>
+<div class="pull-left">
+  <span> Welcome, <strong><%= current_admin.username %></strong>.</span>
+  <%= link_to "Logout", destroy_admin_session_path, method: :delete, :class => 'navbar-link' %>
+</div>
+<br>
+<div class="about">
+  <ul>
+ <% @language.each do |language| %>
+  <% @language = Language.find(language.id) %>
+  <li><%= link_to language.name, edit_language_path(@language) %></li>
+ <% end %>
+ <br>
+ <li><%= link_to 'Add Language', new_language_path %></li>
+ </ul>
+ <br>
+ <% yield %>
+ </div>
+<% end %>

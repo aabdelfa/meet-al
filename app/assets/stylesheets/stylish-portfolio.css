@@ -199,6 +199,20 @@ h3.for-dark-bg{
     -o-background-size: cover;
 }
 
+/* services-bg */
+
+.services-bg {
+    display: table;
+    width: 100%;
+    height: 400px;
+    color: #fff;
+    background: url(serv-bg.png) no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
 /* Portfolio */
 
 .portfolio {
@@ -238,7 +252,102 @@ h3.for-dark-bg{
         height: 75%;
     }
 }
+/* Scrollable */
+.scrollable.colored-slider .scrollable-slider {
+    background: #0088cc;
+}
 
+html.dark .search-content .search-toolbar .nav-pills li.active a,
+html.dark .search-content .search-toolbar .nav-pills li.active a:hover,
+html.dark .search-content .search-toolbar .nav-pills li.active a:focus {
+    color: #0088cc;
+    border-bottom-color: #0088cc;
+}
+/* Navs */
+ul.nav-list.primary > li {
+    margin: 0;
+    padding: 0;
+}
+
+ul.nav-list.primary > li:last-child a {
+    border-bottom: transparent !important;
+}
+
+ul.nav-list.primary > li a {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    background-position: 9px 16px;
+    background-repeat: no-repeat;
+    border-bottom: 1px solid #EDEDDE;
+    padding: 8px 20px;
+}
+
+.changelog h4 {
+    display: inline-block;
+    color: #000;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.changelog .release-date {
+    color: #999;
+    font-size: 0.9em;
+}
+
+.changelog .label {
+    display: inline-block;
+    min-width: 100px;
+}
+
+.scrollable {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.scrollable .scrollable-content {
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0 37px 0 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.scrollable .scrollable-content::-webkit-scrollbar {
+    visibility: hidden;
+}
+
+.scrollable .scrollable-pane {
+    bottom: 0;
+    opacity: 0.01;
+    position: absolute;
+    right: 5px;
+    top: 0;
+    transition: all 0.2s ease 0s;
+    width: 4px;
+}
+
+.scrollable .scrollable-slider {
+    border-radius: 5px;
+    background: none repeat scroll 0 0 #CCC;
+    margin: 0;
+    position: relative;
+    transition: opacity 0.2s ease 0s;
+    opacity: 0;
+}
+
+.scrollable.scrollable-padding .scrollable-content {
+    padding: 10px 24px 10px 10px;
+}
+
+.scrollable:hover .scrollable-slider, .scrollable.visible-slider .scrollable-slider {
+    opacity: 1;
+}
 /* Footer */
 
 footer {

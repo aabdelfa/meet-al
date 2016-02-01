@@ -1,7 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <body>
+    <script>
+    /* This is for including Facebook
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '827100840769217',
+      xfbml      : true,
+      version    : 'v2.5'
+    });
+  };
 
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk')); */
+</script>
     <!-- About -->
     <section id="about" class="about">
         <div class="container">
@@ -15,7 +32,12 @@
         </div>
         <!-- /.container -->
     </section>
-
+<div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div>
     <!-- Services -->
     <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
     <section id="services" class="services bg-primary">
@@ -29,16 +51,36 @@
                         <div class="col-md-3 col-sm-6">
                             <div class="service-item">
                                 <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="<%= language.icon %> fa-stack-1x text-primary"></i>
-                            </span>
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="<%= language.icon %> fa-stack-1x text-primary"></i>
+                                </span>
                                 <h4>
                                     <strong><%= language.name %></strong>
                                 </h4>
                                 <p><%= language.content_type %></p>
-                                <a href="#" class="btn btn-light">Learn More</a>
+                                <a data-toggle="modal" data-target="#id<%= language.id %>" class="btn btn-light">Learn More</a>
                             </div>
                         </div>
+                        <div id="id<%= language.id %>" class="modal fade" role="dialog">
+                          <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title text-primary">Project(s) created with <%= language.name %></h4>
+                              </div>
+                              <div class="modal-body" style="color: #191919;">
+                                <%= language.content.html_safe %>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+
                         <% end %>
                     </div>
                     <!-- /.row (nested) -->
@@ -119,9 +161,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h3>The buttons below are impossible to resist.</h3>
-                    <a href="#" class="btn btn-lg btn-light">Click Me!</a>
-                    <a href="#" class="btn btn-lg btn-dark">Look at Me!</a>
+                    <h3>If you like my work and would like to checkout my services</h3>
+                    <%= link_to("Click Here!",services_path, class: 'btn btn-lg btn-light') %>
+                    <a href="#contact" class="btn btn-lg btn-dark">Contact directly!</a>
                 </div>
             </div>
         </div>

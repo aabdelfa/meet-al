@@ -6,4 +6,6 @@ class WelcomeController < ApplicationController
   def about
     @timelines = Timeline.sorted
   end
+  def services
+  end
 end
