@@ -1,0 +1,55 @@
+<% if flash[:success] != nil %>
+<p class="alert alert-success"><%= flash[:success] %></p>
+<% end %>
+<p class="navbar-text pull-right">
+<% if admin_signed_in? %>
+<div class="pull-left">
+  <span> Welcome, <strong><%= current_admin.username %></strong>.</span>
+  <%= link_to "Logout", destroy_admin_session_path, method: :delete, :class => 'navbar-link' %>
+</div>
+<br>
+<div class="about">
+  <div class="row">
+    <div class="col-md-12">
+       <section class="panel">
+        <header class="panel-heading">
+          <h2>Images</h2>
+        </header>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table mb-none">
+              <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Type</th>
+                    <th>File Name</th>
+                    <th>Created</th>
+                    <th>Actions</th>
+                </tr>
+              </thead>
+                <tbody>
+                  
+           <% @upload.each do |image| %>
+            <% @upload = Upload.find(image.id) %>
+                      <tr>
+                            <td><%= image_tag image.image.url(:thumb) %></td>
+                            <td><%= image.image_content_type %></td>
+                            <td><%= image.image_file_name %></td>
+                            <td><%= image.created_at %></td>
+                            <td class="actions">
+                              
+                              <a href="" class="delete-row"><i class="fa fa-trash-o"></i></a>
+                            </td> 
+                      </tr>
+            <% end %>
+                 
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>   
+     <%= link_to 'New Image', new_upload_path, class: 'btn btn-success' %>
+  </div>
+<% end %>

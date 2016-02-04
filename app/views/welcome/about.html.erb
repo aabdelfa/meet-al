@@ -35,7 +35,26 @@
                  <span class="fa-2x" style="color: #191919;"> &nbsp; Photos</span>
               </div>
             <hr>
-            <h3 style="color: #191919;">Coming Soon!</h3>
+            <% @uploads.each do |image| %>
+            <td><a data-toggle="modal" data-target="#id<%= image.id %>" class="btn btn-light"><%= image_tag image.image.url(:thumb) %></a></td>
+                <div id="id<%= image.id %>" class="modal fade" role="dialog">
+                  <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+                      <div class="modal-body" style="color: #191919;">
+                        <%= image_tag image.image.url(:large) %>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            <% end %>
             </div>      
           </section>
         </div>
@@ -71,17 +90,11 @@
                             <li>
                               <div class="tm-box">
                                 <p class="text-primary mb-none">
-                                <% if Time.now.year == timeline.created_at.year %>
-                                   <% if Time.now.month == timeline.created_at.month %> 
-                                      <% if Time.now.day - timeline.created_at.day > 1 %>
-                                        <%= timeline.created_at.strftime("%B %d at %l:%M %p")  %> 
-                                        <% else %>
-                                            Today at <%= timeline.created_at.strftime("%l:%M %p") %>
-                                      <% end %>
-                                      <% end %>
+                                 <% if Time.now.day == timeline.created_at.day %>
+                                    Today at <%= timeline.created_at.strftime("%l:%M %p") %>
                                     <% else %>
-                                      <%= timeline.created_at.strftime("%B %d at %l:%M %p")  %> 
-                                 <% end %>
+                                    <%= timeline.created_at.strftime("%B %d at %l:%M %p")  %>
+                                    <% end %> 
                                 </p>
                                 <p>
                                   <%= timeline.content %>

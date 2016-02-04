@@ -5,6 +5,7 @@ class WelcomeController < ApplicationController
 	end
   def about
     @timelines = Timeline.sorted
+    @uploads = Upload.sorted
   end
   def services
   end

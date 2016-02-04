@@ -1,12 +1,22 @@
 class UploadsController < ApplicationController
+   def index
+    @upload = Upload.sorted
+   end
+   def new
+    @upload = Upload.new
+  end
+  def show
+    @upload = Upload.find(params[:id])
+  end
    def create
-    @upload = Upload.create(upload_params)
+    @upload = Upload.create( upload_params )
     if @upload.save
-      render json: { message: "success" }, status: 200
+      flash[:success] = 'Image Uploaded Successfully'
+      redirect_to @upload
     else
       #  you need to send an error header, otherwise Dropzone
           #  will not interpret the response as an error:
-      render json: { error: @upload.errors.full_messages.join(',')}, :status => 400
+      flash[:success] = 'Upload Failed!'
     end     
   end
 

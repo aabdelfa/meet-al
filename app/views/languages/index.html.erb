@@ -9,15 +9,51 @@
 </div>
 <br>
 <div class="about">
-  <ul>
- <% @language.each do |language| %>
-  <% @language = Language.find(language.id) %>
-  <li><%= link_to language.name, edit_language_path(@language) %></li>
- <% end %>
- <br>
- <li><%= link_to 'Add Language', new_language_path %></li>
- </ul>
- <br>
- <% yield %>
- </div>
+  <div class="row">
+    <div class="col-md-12">
+       <section class="panel">
+        <header class="panel-heading">
+          <h2>Languages</h2>
+        </header>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table mb-none">
+              <thead>
+                <tr>
+                    <th>Name</th>
+                      <th>Position</th>
+                      <th>Visible</th>
+                      <th>Overview</th>
+                      <th>Content</th>
+                      <th>Icon</th>
+                      <th>Actions</th>
+                </tr>
+              </thead>
+                <tbody>
+                  
+           <% @language.each do |language| %>
+            <% @language = Language.find(language.id) %>
+                      <tr>
+                            <td><%= language.name %></td>
+                            <td><%= language.position %></td>
+                            <td><%= language.visible %></td>
+                            <td><%= language.content_type %></td>
+                            <td><%= language.content.html_safe %></td>
+                            <td><%= language.icon %></td>
+                            <td class="actions">
+                              <%= link_to '', edit_language_path(@language), class: 'fa fa-pencil' %>
+                              <a href="" class="delete-row"><i class="fa fa-trash-o"></i></a>
+                            </td> 
+                      </tr>
+            <% end %>
+                 
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>   
+     <%= link_to 'Add Language', new_language_path, class: 'btn btn-success' %>
+  </div>
 <% end %>
