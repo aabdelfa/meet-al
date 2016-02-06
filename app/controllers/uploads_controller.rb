@@ -1,8 +1,9 @@
 class UploadsController < ApplicationController
-   def index
+   before_action :authenticate_admin!
+  def index
     @upload = Upload.sorted
-   end
-   def new
+  end
+  def new
     @upload = Upload.new
   end
   def show
@@ -14,7 +15,7 @@ class UploadsController < ApplicationController
       flash[:success] = 'Image Uploaded Successfully'
       redirect_to @upload
     else
-      #  you need to send an error header, otherwise Dropzone
+      #  you need to send an error header.
           #  will not interpret the response as an error:
       flash[:success] = 'Upload Failed!'
     end     

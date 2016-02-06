@@ -1,4 +1,5 @@
 class LanguagesController < ApplicationController
+  before_action :authenticate_admin!
   def index
    @language = Language.sorted
   end
@@ -29,6 +30,12 @@ class LanguagesController < ApplicationController
       flash[:error] = "Oops! Something went wrong."
       render 'edit'
     end
+  end
+  def destroy
+    @language = Language.find(params[:id])
+    @language.destroy
+    flash[:success] = "Language deleted successfully"
+    redirect_to action: 'index'
   end
    private
 

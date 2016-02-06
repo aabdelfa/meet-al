@@ -41,8 +41,8 @@
                             <td><%= language.content.html_safe %></td>
                             <td><%= language.icon %></td>
                             <td class="actions">
-                              <%= link_to '', edit_language_path(@language), class: 'fa fa-pencil' %>
-                              <a href="" class="delete-row"><i class="fa fa-trash-o"></i></a>
+                              <%= link_to '', edit_language_path(language), class: 'fa fa-pencil' %>
+                              <%= link_to '', language, method: :delete, data: {confirm: "You sure?"}, class: 'fa fa-trash-o' %>
                             </td> 
                       </tr>
             <% end %>
@@ -54,6 +54,6 @@
         </section>
       </div>
     </div>   
-     <%= link_to 'Add Language', new_language_path, class: 'btn btn-success' %>
+     <%= link_to 'Add Language', new_language_path, class: 'btn btn-success' %> <%= link_to 'Back', admin_path, class: 'btn btn-default' %>
   </div>
 <% end %>

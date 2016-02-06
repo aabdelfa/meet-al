@@ -1,0 +1,58 @@
+<% if flash[:success] != nil %>
+<p class="alert alert-success"><%= flash[:success] %></p>
+<% end %>
+<p class="navbar-text pull-right">
+<% if admin_signed_in? %>
+<div class="pull-left">
+  <span> Welcome, <strong><%= current_admin.username %></strong>.</span>
+  <%= link_to "Logout", destroy_admin_session_path, method: :delete, class: 'navbar-link' %>
+</div>
+<br>
+<div class="about">
+  <div class="row">
+    <div class="col-md-12">
+       <section class="panel">
+        <header class="panel-heading">
+          <h2>Timelines</h2>
+        </header>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table mb-none">
+              <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Images</th>
+                    <th>Content</th>
+                    <th>Created</th>
+                </tr>
+              </thead>
+                <tbody>
+                  
+           <% @timeline.each do |timeline| %>
+                      <tr>
+                            <td><%= timeline.user %></td>
+                            <td>
+                            <% if timeline.image == nil %>
+                              No image available.
+                                <% else %>
+                                <%= timeline.image %>
+                             <% end %>
+                             </td>   
+                            <td><%= timeline.content %></td>
+                            <td><%= timeline.created_at.strftime("%B %Y, %d at %l:%M %p") %></td>
+                            <td class="actions">
+                              <%= link_to '', edit_timeline_path(timeline), class: 'fa fa-pencil' %>
+                              <%= link_to '', timeline, method: :delete, data: {confirm: "You sure?"}, class: 'fa fa-trash-o' %>
+                            </td> 
+                      </tr>
+            <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div> 
+    </div>  
+     <%= link_to 'Status +', new_timeline_path, class: 'btn btn-success' %> <%= link_to 'Back', admin_path, class: 'btn btn-default' %> 
+  </div>
+<% end %>

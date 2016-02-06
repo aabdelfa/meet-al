@@ -1,3 +1,6 @@
+<% if flash[:success] != nil %>
+<p class="alert alert-success"><%= flash[:success] %></p>
+<% end %>
 <p class="navbar-text pull-right">
 <% if admin_signed_in? %>
 <div class="pull-left">
@@ -9,6 +12,7 @@
   <ul>
   <li><%= link_to "Upload Images", uploads_path %></li>
   <li><%= link_to "Coding Languages", languages_path %></li>
+  <li><%= link_to "Timeline", timelines_path %></li>
   </ul>
 </div>
 <% end %>

@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  get 'timelines/index'
+
   get 'languages/index'
 
   devise_for :admins
-  get 'admin/index'
+  get 'admin/index', as: "admin"
   
   resources :uploads
 
@@ -13,6 +15,8 @@ Rails.application.routes.draw do
   get 'uploads/index', as: "uploadsIndex"
   get 'languages/index', as: "languages"
   resources :languages
+  get 'timelines/index', as: "timelines"
+  resources :timelines
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
