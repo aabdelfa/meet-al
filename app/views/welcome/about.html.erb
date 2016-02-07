@@ -99,6 +99,10 @@
                                 <p>
                                   <%= timeline.content %>
                                 </p>
+                                <% if timeline.image.url != '/images/original/missing.png' %>
+                                  <%= image_tag timeline.image.url(:thumb) %>
+                                  <br><br>
+                                <% end %>
                                 <span>
                                     <i class="fa fa-user"></i> By <b class="text-primary"><%= timeline.user %></b></a>
                                 </span>

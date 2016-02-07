@@ -3,7 +3,7 @@ class CreateTimelines < ActiveRecord::Migration
     create_table :timelines do |l|
 
       l.string "user", limit: 25, default: "Alaa" 
-      l.string "image", limit: 50, null: true
+      l.attachment :image
       l.text "content"  
       l.timestamps null: false
 

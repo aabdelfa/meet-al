@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20160127195656) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",     limit: 255
     t.string   "last_sign_in_ip",        limit: 255
+    t.string   "username",               limit: 265
   end
 
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
@@ -43,11 +44,15 @@ ActiveRecord::Schema.define(version: 20160127195656) do
   end
 
   create_table "timelines", force: :cascade do |t|
-    t.string   "user",       limit: 25,    default: "Alaa"
-    t.string   "image",      limit: 50
-    t.text     "content",    limit: 65535
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
+    t.string   "user",               limit: 25,    default: "Alaa"
+    t.string   "image",              limit: 50
+    t.text     "content",            limit: 65535
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+    t.string   "image_file_name",    limit: 265
+    t.string   "image_content_type", limit: 265
+    t.integer  "image_file_size",    limit: 4
+    t.datetime "image_updated_at"
   end
 
   create_table "uploads", force: :cascade do |t|

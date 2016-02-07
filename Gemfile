@@ -31,7 +31,6 @@ gem 'simple_form'
 gem 'devise'
 gem 'fog'
 gem 'codemirror-rails'
-gem 'bootstrap-sass'
 gem 'modernizr-rails'
 gem 'jquery-turbolinks'
 # Use ActiveModel has_secure_password

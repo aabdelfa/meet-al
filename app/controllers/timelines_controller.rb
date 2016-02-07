@@ -5,7 +5,6 @@ class TimelinesController < ApplicationController
   end
   def new
     @timeline = Timeline.new
-    @upload = Upload.new
   end
   def create
     @timeline = Timeline.new(timeline_params)
